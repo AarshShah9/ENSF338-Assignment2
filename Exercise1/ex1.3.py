@@ -7,4 +7,3 @@ def func(n, cache):
         cache[n] = func(n-1, cache) + func(n-2, cache)
         return cache[n]
 
-print(func(10, {}))
