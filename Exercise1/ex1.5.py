@@ -23,8 +23,8 @@ original_times = []
 memo_times = []
 
 for n in range(0, 36):
-    original_times.append(timeit.timeit(lambda: nomemo(n), number=100))
-    memo_times.append(timeit.timeit(lambda: memo(n, cache={}), number=100))
+    original_times.append(timeit.timeit(lambda: nomemo(n), number=1))
+    memo_times.append(timeit.timeit(lambda: memo(n, cache={}), number=1))
 
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
