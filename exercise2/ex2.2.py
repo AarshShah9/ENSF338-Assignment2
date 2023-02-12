@@ -37,7 +37,7 @@ def timing():
 
         for i, array in enumerate(content):
             rez = timeit.timeit(lambda: func1(
-                array, 0, len(array)-1), number=1)
+                array, 0, len(array)-1), number=10)
             print(f"Time for array {i + 1} in seconds", rez/1000.0)
             # val = len(array) * math.log(len(array), 2)
             # print(f"Calculating {len(array)}(log({len(array)}) = {val}")
