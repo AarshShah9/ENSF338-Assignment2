@@ -1,10 +1,8 @@
-import urllib.request
-import sys
-import json
+import random
 import timeit
-import math
 import matplotlib.pyplot as plt
-sys.setrecursionlimit(20000)
+import urllib.request
+import json
 
 
 def func1(arr, low, high):
@@ -15,6 +13,10 @@ def func1(arr, low, high):
 
 
 def func2(array, start, end):
+    # Select a random pivot
+    pivot_index = random.randint(start, end)
+    array[start], array[pivot_index] = array[pivot_index], array[start]
+
     p = array[start]
     low = start + 1
     high = end
