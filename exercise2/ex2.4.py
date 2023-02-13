@@ -44,7 +44,7 @@ def timing():
         for i, array in enumerate(content):
             lengths.append(len(array))
             times.append(timeit.timeit(lambda: func1(
-                array, 0, len(array)-1), number=1))
+                array, 0, len(array)-1), number=5))
             print(f"Time for array {i + 1} in seconds", times[i]/1000.0)
 
     fig = plt.figure()

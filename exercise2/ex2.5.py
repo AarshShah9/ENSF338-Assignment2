@@ -4,6 +4,7 @@ import random
 import timeit
 import matplotlib.pyplot as plt
 
+
 def func1(arr, low, high):
     if low < high:
         pi = func2(arr, low, high)
@@ -31,18 +32,20 @@ def func2(array, start, end):
     array[start], array[high] = array[high], array[start]
     return high
 
+
 def randomize():
     with urllib.request.urlopen('https://raw.githubusercontent.com/ldklab/ensf338w23/main/assignments/assignment2/ex2.json') as inUrl:
         content = json.load(inUrl)
-    
+
     randomized_arrays = []
     for array in content:
         random.shuffle(array)
         randomized_arrays.append(array)
-    
+
     with open("ex2.5.json", "w") as file:
         json.dump(randomized_arrays, file)
     return randomized_arrays
+
 
 def timing(content):
 
@@ -52,7 +55,7 @@ def timing(content):
     for i, array in enumerate(content):
         lengths.append(len(array))
         times.append(timeit.timeit(lambda: func1(
-            array, 0, len(array)-1), number=1))
+            array, 0, len(array)-1), number=5))
         print(f"Time for array {i + 1} in seconds", times[i]/1000.0)
 
     fig = plt.figure()
@@ -73,6 +76,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
